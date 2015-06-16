@@ -1,4 +1,4 @@
-<code><pre style="position: absolute; top: 50%; left: 50%; margin-left: -16em; margin-top: -14em; height:28em; width: 32em;">
+<code><pre style="position: absolute; top: 50%; left: 50%; margin-left: -16em; margin-top: -16em; height:28em; width: 32em;">
                        _____|\
                   _.--|     |:
                  <____|.----||
@@ -10,7 +10,7 @@
                \      /-./_ \;   \    \,;'   \
                ,\    / \:  `:\    \   //    `:`.
              ,'  \  /-._;   | :    : ::    ,.   .
-           ,'     ::   /`-._| |    | || ' :  `.`.)
+           ,'     ::   /`-._| |    | || ' :  `.`.)  <%= notice %>
         _,'       |;._:: |  | |    | `|   :    `'
       ,'   `.     /   |`-:_ ; |    |  |  : \
       `--.   )   /|-._:    :          |   \ \
@@ -25,5 +25,10 @@
        ~~   _//   _//   _// ~ _//     ~
      ~     / /   / /   / /   / /  ~      ~~
           ~~~   ~~~   ~~~   ~~~
-               <%= link_to "Sign in with Github", root_path %>
+
+             <%- if current_user -%>
+               <%= link_to "Sign out!", signout_path %>
+             <%- else -%>
+               <%= link_to "Sign in with Github", "/auth/github" %>
+             <%- end -%>
 </pre><code>
