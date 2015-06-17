@@ -15,11 +15,40 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){
-  $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+// $(function(){
+//   // $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+//   //
+//   // // If you want to keep full screen on window resize
+//   // $(window).resize(function(){
+//   //   $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+//   // });
+// });
 
-  // If you want to keep full screen on window resize
-  $(window).resize(function(){
-    $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+// function foo() {
+// var foo = function() {
+//   var heading = $('#heading');
+//
+
+// }
+
+var getColors = function() {
+  $.ajax({
+    url:     '/rainbow.json',
+    
+    success: function(data) {
+      $('#stuff').html(data);
+    }, 
+    
+    error:   function() {
+      console.log("Woops!")
+    }
+  });
+};
+
+$(function() { // DOM Ready!
+  var heading = $('#heading');
+  heading.click(function(event) {
+    getColors();
   });
 });
+
